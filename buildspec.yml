@@ -1,9 +1,18 @@
 version: 0.2
+
 phases:
+  install:
+    commands:
+      - echo Installing...
   build:
     commands:
-      - echo "Build completed"
+      - echo Build started
+      - mkdir output
+      - cp index.html output/
+      - cp appspec.yml output/
+      - mkdir output/scripts
+      - cp scripts/restart_httpd.sh output/scripts/
 artifacts:
   files:
-    - '**/*'
+    - output/**/*
 
